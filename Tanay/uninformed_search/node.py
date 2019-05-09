@@ -14,6 +14,12 @@ class Node:
             return True
         return False
 
+    def path_to_goal_state(self):
+        if self.parent:
+            self.parent.path_to_goal_state()
+            print('->')
+        print(self, 'level =', self.level)
+
     def __repr__(self):
         return str(self.state)
 
@@ -37,6 +43,8 @@ class Node:
 
                 if goal_state and node.is_goal_state(goal_state):
                     print('Goal found!')
+                    print('Path to goal state:')
+                    node.path_to_goal_state()
                     return
 
                 # add its children to the queue
@@ -47,7 +55,8 @@ class Node:
     def dfs(self, goal_state=None):
         print(self, 'level =', self.level)
         if goal_state and self.is_goal_state(goal_state):
-            print('Goal found')
+            print('Goal found\npath to goal state:')
+            self.path_to_goal_state()
             return True
         for node in self.children:
             if node.dfs(goal_state):
@@ -59,7 +68,8 @@ class Node:
             return False
         print(self, 'level =', self.level)
         if goal_state and self.is_goal_state(goal_state):
-            print('Goal found.')
+            print('Goal found\npath to goal state:')
+            self.path_to_goal_state()
             return True
         for node in self.children:
             if node.dls(limit-1, goal_state):
