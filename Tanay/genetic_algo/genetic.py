@@ -29,10 +29,8 @@ class Individual:
 
     def mutate(self):
         n = Individual.n
-        m = len(Individual.all_chromosomes)
         i = random.randint(0, n-1)
-        j = random.randint(0, m-1)
-        self.genes[i] = Individual.all_chromosomes[j]
+        self.genes[i] = random.choice(Individual.all_chromosomes)
 
     def __eq__(self, other):
         return self.fitness == other.fitness
