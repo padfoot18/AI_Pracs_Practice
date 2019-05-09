@@ -37,7 +37,7 @@ class Node:
     def __repr__(self):
         return str(self.state)
 
-    def a_star(self, goal_state):
+    def a_star(self, goal_state=None):
         print('in astar')
         open_nodes = [self]
         heapq.heapify(open_nodes)
@@ -55,12 +55,12 @@ class Node:
                 child.f = child.g + child.h
                 heapq.heappush(open_nodes, child)
 
-    def greedy_bfs(self, goal_state):
+    def greedy_bfs(self, goal_state=None):
         open_nodes = [self]
         heapq.heapify(open_nodes)
         while open_nodes:
             new_node = heapq.heappop(open_nodes)
-            print(new_node, 'level =', new_node.level, 'f =', new_node.f, 'g =', new_node.g, 'h =', new_node.h)
+            print(new_node, 'level =', new_node.level, 'f =', new_node.f, 'h =', new_node.h)
             if new_node.is_goal_state(goal_state):
                 print('Goal state found\nPath to goal state:')
                 new_node.path_to_goal_state()

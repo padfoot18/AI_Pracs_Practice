@@ -15,6 +15,7 @@ class EightPuzzle(Node):
         return '\n'.join(row)+'\t['+self.action+']\n'
 
     def heuristic(self):
+        # manhattan distance
         tiles = ['1', '2', '3', '4', '5', '6', '7', '8', ' ']
         for tile in tiles:
             i1,j1 = find_tile(self.state, tile)

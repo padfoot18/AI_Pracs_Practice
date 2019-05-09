@@ -1,0 +1,60 @@
+A star search:
+in astar
+1	2	3
+ 	4	6
+7	5	8	[initial]
+ level = 0 f = 0 g = 0 h = 4
+1	2	3
+4	 	6
+7	5	8	[right]
+ level = 1 f = 3 g = 1 h = 2
+1	2	3
+4	5	6
+7	 	8	[down]
+ level = 2 f = 2 g = 2 h = 0
+Goal state found
+Path to goal state:
+1	2	3
+ 	4	6
+7	5	8	[initial]
+
+-->
+1	2	3
+4	 	6
+7	5	8	[right]
+
+-->
+1	2	3
+4	5	6
+7	 	8	[down]
+
+
+Greedy bfs:
+1	2	3
+ 	4	6
+7	5	8	[initial]
+ level = 0 f = 0 h = 4
+1	2	3
+4	 	6
+7	5	8	[right]
+ level = 1 f = 2 h = 2
+1	2	3
+4	5	6
+7	 	8	[down]
+ level = 2 f = 0 h = 0
+Goal state found
+Path to goal state:
+1	2	3
+ 	4	6
+7	5	8	[initial]
+
+-->
+1	2	3
+4	 	6
+7	5	8	[right]
+
+-->
+1	2	3
+4	5	6
+7	 	8	[down]
+
